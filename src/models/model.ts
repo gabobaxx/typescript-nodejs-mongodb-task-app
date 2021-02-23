@@ -1,11 +1,16 @@
-import mongoose, { Schema, model } from 'mongoose';
+import { Schema, model } from 'mongoose';
 
-export interface Scheme extends mongoose.Document {
-    title: string;
-};
-
-const scheme = new Schema({
-    title: String
+const TaskSchema = new Schema({
+    title: {
+        type: String,
+        required: true,
+        lowercase: true
+    },
+    description: {
+        type: String,
+        required: true,
+        lowercase: true
+    }
 });
 
-export default scheme<Scheme>('Scheme', schema);
+export default model('Task', TaskSchema);
